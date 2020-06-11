@@ -22,3 +22,22 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='images')
+
+
+    def __str__(self):
+        return self.title
+
+
+class HappyClients(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images')
+
+    def __str__(self):
+        return self.name
