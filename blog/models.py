@@ -5,8 +5,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from autoslug.fields import AutoSlugField
 from ckeditor.fields import RichTextField
+from django.contrib.auth import get_user_model
 
 
+User = get_user_model()
 # Create your models here.
 class BlogPostQueryset(models.QuerySet):
     def published(self):
@@ -23,6 +25,7 @@ class BlogPost(models.Model):
     text = RichTextField(_('text'))
     description = models.TextField(_('description'), blank=True, null=True)
     published = models.BooleanField(_('published'), default=False)
+    comment_count = models.IntegerField(default=0)
 
     created = models.DateTimeField(_('created'), auto_now_add=True)
     modified = models.DateTimeField(_('modified'), auto_now=True)
@@ -46,3 +49,15 @@ class BlogPost(models.Model):
         super().save(*args, **kwargs)
     
     objects = BlogPostQueryset.as_manager()
+
+    @property
+    def get_comments(self):
+        return self.comments.all().order_by('-timestamp')
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    blog = models.ForeignKey('BlogPost', related_name='comments', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username

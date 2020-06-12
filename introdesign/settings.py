@@ -36,10 +36,18 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # The following apps are required
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django.contrib.staticfiles',
+    'autoslug',
+    'ckeditor',
     'service',
     'project',
     'blog',
+    'events'
 ]
 
 MIDDLEWARE = [
@@ -71,6 +79,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'introdesign.wsgi.application'
+LOGIN_REDIRECT_URL = '/'
 
 
 # Database
@@ -127,3 +136,11 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1

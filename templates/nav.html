@@ -15,8 +15,14 @@
           <li><a href="#portfolio" class="page-scroll">Projects</a></li>
           <li><a href="#team" class="page-scroll">Team</a></li>
           <li><a href="#contact" class="page-scroll">Contact</a></li>
-          <li><a href="{% url 'service:events'%}" class="page-scroll">Events</a></li>
+          <li><a href="{% url 'events:list_events'%}" class="page-scroll">Events</a></li>
           <li><a href="{% url 'blog:list' %}" class="page-scroll">Blog</a></li>
+          {% if request.user.is_authenticated %}
+          <li><a href="{% url 'account_logout' %}" class="page-scroll">Log out</a></li>
+          {% else %}
+          <li><a href="{% url 'account_login' %}" class="page-scroll">Log in</a></li>
+          <li><a href="{% url 'account_signup' %}" class="page-scroll">Sign up</a></li>
+          {% endif %}
         </ul>
       </div>
       <!-- /.navbar-collapse --> 

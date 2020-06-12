@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Service, TeamMember, Events, HappyClients
+from .models import Service, TeamMember, Event, HappyClients
 
 # Create your views here.
 
@@ -10,20 +10,13 @@ def index(request):
 
     context = {
         'services': services,
-        'teamembers': teammembers
+        'teamembers': teammembers,
         'clients': clients
     }
 
     return render(request, 'index.html', context)
 
 
-
-def events(request):
-    events = Events.objects.all()
-    context = {
-        'events': events
-    }
-    return render(request, 'eventspage.html', context)
 
 
 
