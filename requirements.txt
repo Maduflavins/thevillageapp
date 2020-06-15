@@ -45,6 +45,4 @@ soupsieve==2.0.1
 sqlparse==0.3.1
 Unidecode==0.4.21
 urllib3==1.25.9
-wagtailmenus==2.8
-webencodings==0.5.1
-Willow==1.1
+
