@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for plan in plans %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-xl-6">
+                    <div class="card border-success mb-3" style="max-width: 18rem;">
+                        <div class="card-header bg-transparent border-success">{{plan.title}}</div>
+                        <div class="card-body text-success">
+                          <h5 class="card-title">{{plan.price}}</h5>
+                          <p class="card-text">{{plan.benefit1}}</p>
+                          <p class="card-text">{{plan.benefit2}}</p>
+                          <p class="card-text">{{plan.benefit3}}</p>
+                          <p class="card-text">{{plan.benefit4}}</p>
+                          <p class="card-text">{{plan.benefit5}}</p>
+                          <p class="card-text">{{plan.benefit6}}</p>
+                          <p class="card-text">{{plan.benefit7}}</p>
+                          <p class="card-text">{{plan.benefit8}}</p>
+                          <p class="card-text">{{plan.benefit9}}</p>
+                          <p class="card-text">{{plan.benefit10}}</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-success"><a href="{{% url 'contact_us'%}}">Book a Space</a></div>
+                      </div>
+
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}
+
+
+
+
+  

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z5m0-$p25zosfk9^!fa^+#%^xk$k)!)m=*y2^r5#aes=bnsdyi'
+SECRET_KEY = os.environ["SECRET_KEY"]
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,9 +48,19 @@ INSTALLED_APPS = [
     'ckeditor',
     'service',
     'project',
+    'events',
+    'plans',
+    'cloudinary',
     'blog',
-    'events'
+
 ]
+#configure cloudinary
+cloudinary.config(
+    cloud_name = os.environ.get("CLOUD_NAME"),
+    api_key = os.environ.get("API_KEY"),
+    api_secret = os.environ.get("API_SECRET"),
+    secure = True
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

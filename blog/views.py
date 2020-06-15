@@ -1,38 +1,36 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views import generic
+
+from .models import Post
+from .forms import CommentsForm
 
 # Create your views here.
-from django.views.generic import ListView, DetailView
-
-from .models import BlogPost
-from .forms import CommentForm
 
 
-class BlogPostListView(ListView):
-    model = BlogPost
-    queryset = BlogPost.objects.filter(published=True)
-    template_name = 'blog/list.html'
-    context_object_name = 'blog_posts'
-    paginate_by = 15  # that is all it takes to add pagination in a Class Based View
+def view_posts(request):
+    blog_list = Post.objects.all().filter(published=True).order_by('-published_date')
+    context = {
+        'posts': blog_list
+    }
+
+    return render(request, 'blog/blog_list.html', context)
 
 
-class BlogPostDetailView(DetailView):
-    model = BlogPost
-    queryset = BlogPost.objects.filter(published=True)
-    template_name = 'blog/detail.html'
-    context_object_name = 'blog_post'
 
-
-def add_comment(request, slug):
-    post = BlogPost.objects.filter(published=True)
+def post_detail(request, post_id):
+    posts = get_object_or_404(Post, id=post_id)
+    form = CommentsForm(request.POST or None)
     if request.method == 'POST':
-        form = CommentForm(requst.POST)
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('blog/detail', slug=post.slug)
-    else:
-        form = CommentForm()
-    template = 'blog/add_comment.html'
-    context =  {'form': form}
-    return render(request, template, context)
+           form.instance.user = request.user
+           form.instance.post = post
+           form.save()
+           return redirect('post_detail', post_id=post_id)
+
+    context = {
+        'post': posts,
+        'form': form
+    }
+
+    return render(request, 'blog/blog_detail.html', context)
+

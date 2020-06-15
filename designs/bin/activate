@@ -82,3 +82,8 @@ pydoc () {
 if [ -n "${BASH-}" ] || [ -n "${ZSH_VERSION-}" ] ; then
     hash -r 2>/dev/null
 fi
+
+export SECRET_KEY="z5m0-$p25zosfk9^!fa^+#%^xk$k)!)m=*y2^r5#aes=bnsdyi"
+export CLOUD_NAME="maduflavins"
+export API_KEY="765281594284554"
+export API_SECRET="ZklrZxBbWDp4jUT3j41lU0a5noU"

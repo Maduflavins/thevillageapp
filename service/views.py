@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Service, TeamMember, Event, HappyClients
+from .models import Service, TeamMember, Event, HappyClients, AboutUs, Segmentation
 
 # Create your views here.
 
@@ -15,6 +15,23 @@ def index(request):
     }
 
     return render(request, 'index.html', context)
+
+
+
+
+def about(request):
+    about_us = AboutUs.objects.all()
+    segment = Segmentation.objects.all()
+    context = {
+        'abouts': about_us,
+        'segments': segment
+    }
+
+    return render(request, 'about.html', context)
+
+
+def contact_us(request):
+    return render(request, 'contact_us.html')
 
 
 

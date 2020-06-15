@@ -1,17 +1,14 @@
 from django import forms
 from .models import Comment
 
-
-class CommentForm(forms.ModelForm):
+class CommentsForm(forms.ModelForm):
     content = forms.CharField(widget=forms.Textarea(attrs={
-        'class': 'forms-control',
-        'placeholder': 'Enter your Comment',
-        'id': 'userComment',
-        'rows': '4'
-
+        'class':'form-control',
+        'placeholder':'Enter your content',
+        'id':'usercomment',
+        'rows':'4'
     }))
 
     class Meta:
         model=Comment
-        fields = ('content', )
-
+        fields=('content', )

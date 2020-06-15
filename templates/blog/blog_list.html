@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="container"> 
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand page-scroll" href="#page-top"><img id="brand" src="{% static 'img/vill.jfif' %}" alt="logo" /></a> </div>
+          
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#about" class="page-scroll">About</a></li>
+              <li><a href="#services" class="page-scroll">Services</a></li>
+              <li><a href="#portfolio" class="page-scroll">Projects</a></li>
+              <li><a href="#team" class="page-scroll">Team</a></li>
+              <li><a href="#contact" class="page-scroll">Contact</a></li>
+              <li><a href="{% url 'events:list_events'%}" class="page-scroll">Events</a></li>
+              <li><a href="{% url 'blog:view_posts'%}" class="page-scroll">Blog</a></li>
+              {% if request.user.is_authenticated %}
+              <li><a href="{% url 'account_logout' %}" class="page-scroll">Log out</a></li>
+              {% else %}
+              <li><a href="{% url 'account_login' %}" class="page-scroll">Log in</a></li>
+              <li><a href="{% url 'account_signup' %}" class="page-scroll">Sign up</a></li>
+              {% endif %}
+            </ul>
+          </div>
+          <!-- /.navbar-collapse --> 
+        </div>
+      </nav>
+      {% for post in posts%}
+        <div class="row">
+          <div class="col-12 col-md-4 col-xl-6">
+            <div class="card" style="width: 18rem;">
+              <img src="{{post.post_image.url }}" class="card-img-top rounded-circle" width="50" height="150" alt="blog_image">
+              <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{post.description|truncatechars:50}}</p>
+                <a href="/blog/{{post.id}}" class="btn btn-primary">Read More...</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- <a href="/blog/{{post.id}}"><h3>{{post.title}}</h3></a>
+      <h3>{{post.author.user.username}}</h3>
+      <p>{{post.description|truncatechars:50}}</p> -->
+    {% endfor %}
+
+    <div id="footer">
+        <div class="container text-center">
+          <div class="social">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+              <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+          </div>
+          <div>
+            <p>&copy; 2020 the Village.</p>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+
+
+
+
+

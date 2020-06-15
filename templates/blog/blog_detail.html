@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>{{post.title}}</h1><br><br>
+        <img src="{{post.post_image.url}}" class="rounded-image" /><br/><br/>
+        <p>{{post.description}}</p><br/><br/>
+        <h3>Blog Comments</h3>
+
+        {% for comment in post.get_comments %}
+        <div class="comment">
+        {{comment.content }} 
+        {{comment.user.username }}
+        </div>
+        {% endfor %}
+        <br><br>
+        {% if request.user.is_authenticated %}
+        <h1>Add a Comment </h1>
+    
+        <div class="add-comment">
+            <form  action='.' method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group">
+                        {{ form }}
+                    </div>
+                </div>
+                    <button type="submit">Leave a comment</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
+
+    
+

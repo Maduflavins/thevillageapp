@@ -22,9 +22,13 @@ from service import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('blog/', include('blog.urls')),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact_us, name='contact_us'),
     path('events/', include('events.urls')),
     path('accounts/', include('allauth.urls')),
+    path('plans/', include('plans.urls'), name='plans'),
+    path('blog/', include('blog.urls'), name='blog'),
+    path('project/', include('project.urls'), name='project'),
     
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

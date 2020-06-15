@@ -207,12 +207,19 @@
       <div id="row">
         {% for team in teamembers %}
         <div class="col-md-3 col-sm-6 team">
-          <div class="thumbnail"> <img src="{{ team.image.url }}" alt="..." class="team-img">
+          <div class="thumbnail"> <img src="{{ team.team_image.url }}" alt="..." class="team-img"></div>
             <div class="caption">
               <h3>{{team.title}}</h3>
               <p>{{ team.description }}</p>
             </div>
           </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="happy-client">
+        {% for client in clients %}
+        <div class="clients">
+          <img src="{{ client.client_image.url }}" alt="client-image" />
         </div>
         {% endfor %}
       </div>

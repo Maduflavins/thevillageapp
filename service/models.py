@@ -1,14 +1,13 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
 class Service(models.Model):
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=150)
-    image = models.ImageField(upload_to='images')
-    url = models.URLField(blank=True)
-
+    service_image = CloudinaryField('service_image', blank=True)
+    
 
     def __str__(self):
         return self.title
@@ -18,7 +17,7 @@ class Service(models.Model):
 class TeamMember(models.Model):
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=150)
-    image = models.ImageField(upload_to='images')
+    team_image = CloudinaryField('team_image', blank=True)
 
     def __str__(self):
         return self.title
@@ -28,7 +27,7 @@ class TeamMember(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
-    image = models.ImageField(upload_to='images')
+    events_image = CloudinaryField('events_image', blank=True)
 
 
     def __str__(self):
@@ -37,7 +36,33 @@ class Event(models.Model):
 
 class HappyClients(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='images')
+    client_image = CloudinaryField('client_image', blank=True)
 
     def __str__(self):
         return self.name
+
+class AboutUs(models.Model):
+    title = models.CharField(max_length=100)
+    about_image = CloudinaryField('about_image', blank=True)
+    description = models.TextField()
+    mission = models.TextField()
+    visions = models.TextField()
+    value1 = models.CharField(max_length=150)
+    value2 = models.CharField(max_length=150)
+    value3 = models.CharField(max_length=150, blank=True)
+    value4 = models.CharField(max_length=150, blank=True)
+    twitter = models.URLField(max_length=250, blank=True)
+    instangram = models.URLField(max_length=200, blank=True)
+    linkedin = models.URLField(max_length=200, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Segmentation(models.Model):
+    title = models.CharField(max_length=100)
+    seg_image = CloudinaryField('seg_image', blank=True)
+    description = models.TextField()
+
+    def __str__ (self):
+        return self.title

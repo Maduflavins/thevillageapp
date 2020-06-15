@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>About Page</h1>
+        {% for about in abouts %}
+            <div><img src="{{about.about_image.url}}"  alt="about-image" /></div>
+            <h1>{{about.title}}</h1>
+            <div><p>{{about.description}}</p></div>
+        
+        <div>
+            <h1>Mission</h1>
+            <div><p>{{about.mission}}</p></div>
+        </div>
+        <div>
+            <h1>Vision</h1>
+            <div>{{about.visions}}</div>
+        </div>
+        <div>
+            <h1>Core Values</h1>
+            <div>
+                <p>{{about.value1}}</p><br>
+                <p>{{about.value2}}</p><br>
+                <p>{{about.value3}}</p><br>
+                <p>{{about.value4}}</p>
+            </div>
+        </div>
+        <div>
+            <h1>Our Segmentations</h1>
+            <div>
+                {% for segment in segments %}
+                <div class="row">
+                    <div class="col-12 col-md-4 col-xl-6">
+                      <div class="card" style="width: 18rem;">
+                        <img src="{{segment.seg_image.url }}" class="card-img-top" width="50" height="150" alt="blog_image">
+                        <div class="card-body">
+                          <h5 class="card-title">{{segment.title}}</h5>
+                          <p class="card-text">{{segment.description}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                {% endfor %}
+            </div>
+        </div>
+        <div class="social-links">
+            <h1>Please connect  with us through any of  our social media handle</h1>
+            <a href="{{ post.twitter}}"><p>twitter</p></a>
+            <a href="{{ post.instagram}}"><p>instagram</p></a>
+            <a href="{{ post.linkedin}}"><p>linked</p></a>
+        </div>
+    </div>
+   
+    {% endfor %}
+
+</div>
+
+{% endblock content%}

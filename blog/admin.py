@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import BlogPost, Comment
-
+from .models import  Category, Author, Post, Comment
 # Register your models here.
 
-@admin.register(BlogPost)
-class BlogPostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image', 'text', 'published', 'pub_date')
 
+# Register your models here.
+admin.site.register(Category)
+admin.site.register(Author)
+admin.site.register(Post)
 admin.site.register(Comment)
