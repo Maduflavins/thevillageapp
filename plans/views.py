@@ -6,7 +6,7 @@ from .models import Plan
 def plan_list(request):
     plan = Plan.objects.all()
     context = {
-        'plans': plans
+        'plans': plan
     }
 
     return render(request, 'plan/plans.html', context)

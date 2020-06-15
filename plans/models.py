@@ -4,7 +4,8 @@ from django.db import models
 
 class Plan(models.Model):
     title = models.CharField(max_length=100)
-    price = models.DecimalField(decimal_places=2, max_digits=4)
+    price = models.IntegerField(default=0)
+    per = models.CharField(max_length=50,blank=True )
     benefit1 = models.CharField(max_length=50, blank=True)
     benefit2 = models.CharField(max_length=50, blank=True)
     benefit3 = models.CharField(max_length=50, blank=True) 
