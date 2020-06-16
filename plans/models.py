@@ -1,9 +1,11 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 class Plan(models.Model):
     title = models.CharField(max_length=100)
+    plan_img = CloudinaryField('plan_img', blank=True)
     price = models.IntegerField(default=0)
     per = models.CharField(max_length=50,blank=True )
     benefit1 = models.CharField(max_length=50, blank=True)
