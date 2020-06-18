@@ -75,7 +75,7 @@ hr {
 	width: 70px;
 	text-align: center;
 	position: relative;
-	background: #a7c44c;
+	background: #18d26e;
 	margin: 0 auto;
 	margin-bottom: 20px;
 	border: 0;
@@ -115,7 +115,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 }
 #menu.navbar-default .navbar-nav > li > a {
 	text-transform: uppercase;
-	color: #a7c44c;
+	color: #18d26e;
 	font-weight: 400;
 	font-size: 15px;
 	padding: 5px 0;
@@ -124,7 +124,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin: 10px 15px 0 15px;
 }
 #menu.navbar-default .navbar-nav > li > a:hover {
-	color: #eee;
+	color: rgb(34, 33, 33);
 }
 .on {
 	background-color: #363636 !important;
@@ -139,8 +139,8 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	border-radius: 0;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-	background-color: #a7c44c;
-	border-color: #a7c44c;
+	background-color: #18d26e;
+	border-color: #18d26e;
 }
 .navbar-default .navbar-toggle:hover>.icon-bar {
 	background-color: #FFF;
@@ -154,8 +154,8 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 .btn-custom {
 	text-transform: uppercase;
 	color: #fff;
-	text-shadow: 0 0 3px #859c3c;
-	background-color: #a7c44c;
+	text-shadow: 0 0 3px #2cc473;
+	background-color: #18d26e;
 	border: 0;
 	padding: 14px 20px;
 	margin: 0;
@@ -166,7 +166,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 }
 .btn-custom:hover, .btn-custom:focus, .btn-custom.focus, .btn-custom:active, .btn-custom.active {
 	color: rgba(255,255,255,0.8);
-	background-color: #94ae44;
+	background-color: #14ac5b;
 }
 /* Header Section */
 .intro {
@@ -192,7 +192,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	letter-spacing: -1px;
 }
 .intro span {
-	color: #a7c44c;
+	color: #18d26e;
 	font-weight: 600;
 }
 .intro p {
@@ -220,15 +220,44 @@ header .intro-text {
 	margin-left: 10px;
 	margin-top: 20px;
 }
-#about img {
+#about .about-title {
 	display: inline-block;
 	border-radius: 100px 0 100px 0;
-	box-shadow: -15px 0 #a7c44c;
+	box-shadow: -15px 0 #18d26e;
+}
+#about .about-icon{
+    /* border: 1px solid green; */
+    border-radius: 50%;
+}
+#about .our-values{
+    /* padding-left: 10%; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8%;
+    background: #18d26e ;
+}
+#about ul li{
+    /* border: 1px solid red; */
+    text-align: left;
+    list-style: none;
 }
 #about p {
 	line-height: 24px;
 	margin: 15px 0 30px;
 }
+/* #about .our-values div .card{
+	position: relative;
+	display: flex;
+	 height: 300px;
+	width: 250px; 
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word !important;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: .25rem;
+} */
 /* Services Section */
 #services {
 	padding: 120px 0;
@@ -239,7 +268,7 @@ header .intro-text {
 #services img {
 	width: 300px;
 	border-radius: 75px 0 75px 0;
-	box-shadow: 15px 0 #a7c44c;
+	box-shadow: 15px 0 #18d26e;
 }
 #services h3 {
 	padding: 10px 0;
@@ -262,21 +291,21 @@ ol.type li {
 	margin-left: 20px;
 }
 ol.type li a {
-	color: #a7c44c;
+	color: #18d26e;
 	font-weight: 400;
 	font-size: 15px;
 	padding: 10px 20px;
-	border: 2px solid #a7c44c;
+	border: 2px solid #18d26e;
 	border-radius: 10px 0 10px 0;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 }
 ol.type li a.active {
-	background: #a7c44c;
+	background: #18d26e;
 	color: #fff;
 }
 ol.type li a:hover {
-	background: #a7c44c;
+	background: #18d26e;
 	color: #fff;
 }
 .isotope-item {
@@ -351,15 +380,29 @@ ol.type li a:hover {
 .hover-bg:hover .hover-text {
 	opacity: 1;
 }
+
+/* Events */
+#events div#notice{
+	background: url(../img/07-large.jpg) center top no-repeat;
+	background-size: cover ;
+	text-align: center;
+	height: 600px;
+	/* border: 1px solid red; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* Events end */
+
 /* Team Section */
 #team {
 	color: #fff;
-	background: #a7c44c url(../img/team-bg.jpg) center top no-repeat;
+	background: #18d26e url(../img/team-bg.jpg) center top no-repeat;
 	background-size: cover;
 }
 #team .overlay {
 	padding: 120px 0;
-	background: rgba(167, 196, 76, 0.9);
+	background: #18d26edc;
 }
 #team h2, #team p {
 	color: #fff;
@@ -397,6 +440,20 @@ ol.type li a:hover {
 #contact form {
 	padding: 30px 0;
 }
+
+div#form-container{
+	border: 1px solid #363636;
+	width: 600px ; 
+	padding: 10px;
+	margin: auto;
+	border-radius: 8px;
+	box-shadow: 4px 6px 10px rgb(128, 128, 128);
+}
+@media (max-width:600px){
+	div#form-container{
+		width: 340px;
+	}
+}
 #contact h3 {
 	text-transform: uppercase;
 	font-size: 20px;
@@ -409,7 +466,7 @@ ol.type li a:hover {
 }
 label {
 	font-size: 12px;
-	font-weight: 400;
+	/* font-weight: 400; */
 	font-family: 'Open Sans', sans-serif;
 	float: left;
 }
@@ -476,7 +533,7 @@ color: #777;
 #footer .social i.fa {
 	font-size: 26px;
 	padding: 4px;
-	color: #a7c44c;
+	color: #18d26e;
 	transition: all 0.3s;
 }
 #footer .social i.fa:hover {
@@ -489,5 +546,5 @@ color: #777;
 	color: #999;
 }
 #footer a:hover {
-	color: #a7c44c;
+	color: #18d26e;
 }
