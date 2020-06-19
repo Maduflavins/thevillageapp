@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "z5m0-$p25zosfk9^!fa^+#%^xk$k)!)m=*y2^r5#aes=bnsdyi"
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -56,9 +56,9 @@ INSTALLED_APPS = [
 ]
 #configure cloudinary
 cloudinary.config(
-    cloud_name = "davestrings",
-    api_key = "525443994728777",
-    api_secret = "zGPWlRmCiZxyOTKCZRC--XKmlqM",
+    cloud_name = os.environ["CLOUD_NAME"],
+    api_key = os.environ["API_KEY"],
+    api_secret = os.environ["API_SECRET"],
     secure = True
 )
 
@@ -99,8 +99,12 @@ LOGIN_REDIRECT_URL = '/'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'thevillage',
+        'USER': 'admin',
+        'PASSWORD': 'thevillage',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -142,9 +146,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_in_project')
+    os.path.join(BASE_DIR, 'static')
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')

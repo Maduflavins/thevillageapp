@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 
 class Service(models.Model):
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=150)
+    description = models.CharField(max_length=300)
     service_image = CloudinaryField('service_image', blank=True)
     
 
@@ -26,7 +26,7 @@ class TeamMember(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
+    description = models.CharField(max_length=350)
     events_image = CloudinaryField('events_image', blank=True)
 
 
