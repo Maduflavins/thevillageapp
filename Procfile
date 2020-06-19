@@ -1,1 +1,1 @@
-web: gunicorn introdesign.wsgi --log-file -
+web: gunicorn introdesign.wsgi
