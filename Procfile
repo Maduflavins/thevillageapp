@@ -1,0 +1,1 @@
+web: gunicorn introdesign.wsgi --log-file -
