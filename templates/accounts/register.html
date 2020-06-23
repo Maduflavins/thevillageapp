@@ -1,0 +1,23 @@
+
+<div class="container">
+    <h2>Create Account with Us</h2>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token c%}
+            {% for field in registration_form %}
+                <p>
+                    {{field.label_tag }}
+                    {{field}}
+                    {% if field.help_text %}
+                        <small style="color: gray;">{{field.help_text}}</small>
+                    {% endif %}
+                    {% for error in fields.errors %}
+                    <small style="color: red;">{{error}}</small>
+                    {% endfor %}
+                </p>
+            {% endfor %}
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+</div>
+

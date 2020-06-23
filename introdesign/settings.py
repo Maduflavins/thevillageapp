@@ -31,6 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['thevillageapp.herokuapp.com', 'localhost', '*']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -53,6 +54,9 @@ INSTALLED_APPS = [
     'plans',
     'cloudinary',
     'blog',
+    'accounts',
+    'phone_field',
+    'django_smtp_ssl',
 
 ]
 #configure cloudinary
@@ -100,15 +104,15 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'thevillage',
-    #     'USER': 'admin',
-    #     'PASSWORD': 'thevillage',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'thevillage',
+        'USER': 'admin',
+        'PASSWORD': 'thevillage',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+    # 'default': dj_database_url.config()
 }
 
 
@@ -130,6 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'accounts.Account'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -166,3 +171,25 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+
+#SMTP Configuration
+EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_HOST = 'twentytwo.qservers.net'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'maduabuchiokonkwo@village.ng'
+EMAIL_HOST_PASSWORD = ',Z(-hs7vO,O{'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'maduabuchiokonkwo@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Bigdata11051989'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.elasticemail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'maduabuchiokonkwo@village.ng'
+# EMAIL_HOST_PASSWORD = '46A11417A4240B8A2F9AA5883D3119165A8A'

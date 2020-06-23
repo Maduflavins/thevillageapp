@@ -1,0 +1,11 @@
+<h1>Plan Detail</h1>
+<h1>{{plan.title}}</h1>
+
+<div class="form-group">
+    <form action="" method="POST">
+        {% csrf_token%}
+        {{form}}
+
+        <button type="submit">Subscribe</button>
+    </form>
+</div>

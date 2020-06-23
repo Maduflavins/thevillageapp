@@ -44,7 +44,7 @@
                             <li>&#10004;   {{plan.benefit10}}</li>
                             {% endif %}
                         </ul>
-                        <a href="{% url 'contact_us'%}" id="btn-custom" class="btn  btn-lg page-scroll">Book Space</a>
+                        <a href="/plans/{{plan.id}}/{{plan.title}}/{{plan.price}}" id="btn-custom" class="btn  btn-lg page-scroll">Book Space</a>
                     </div>
                 </div>
                 {% endfor %}

@@ -12,15 +12,16 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="{% url 'about' %}" class="page-scroll">About</a></li>
           <li><a href="{% url 'plans:plan_list' %}" class="page-scroll">Plans</a></li>
-          <!-- <li><a href="{% url 'project:display_products' %}" class="page-scroll">Projects</a></li> -->
           <li><a href="{% url 'contact_us'%}" class="page-scroll">Contact</a></li>
           <li><a href="{% url 'events:list_events'%}" class="page-scroll">Events</a></li>
           <li><a href="{% url 'blog:view_posts'%}" class="page-scroll">Blog</a></li>
           {% if request.user.is_authenticated %}
-          <li><a href="{% url 'account_logout' %}" class="page-scroll">Log out</a></li>
+          <li><a href="#" class="page-scroll">Hi, {{request.user.username}}</a></li>
+          <li><a href="{% url 'accounts:logout' %}" class="page-scroll">Log out</a></li>
+          <li><a href="{% url 'accounts:update' %}" class="page-scroll">Update</a></li>
           {% else %}
-          <li><a href="{% url 'account_login' %}" class="page-scroll">Log in</a></li>
-          <li><a href="{% url 'account_signup' %}" class="page-scroll">Sign up</a></li>
+          <li><a href="{% url 'accounts:login' %}" class="page-scroll">Log in</a></li>
+          <li><a href="{% url 'accounts:register' %}" class="page-scroll">Sign up</a></li>
           {% endif %}
         </ul>
       </div>

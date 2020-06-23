@@ -32,7 +32,7 @@ def post_detail(request, post_id):
 
     context = {
         'post': posts,
-        'form': form
+        'form': form,
     }
 
     return render(request, 'blog/blog_detail.html', context)
