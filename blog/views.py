@@ -20,6 +20,7 @@ def view_posts(request):
 
 def post_detail(request, post_id):
     posts = get_object_or_404(Post, id=post_id)
+    post_related = posts.tags.similar_objects()
     form = CommentsForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
@@ -33,6 +34,7 @@ def post_detail(request, post_id):
     context = {
         'post': posts,
         'form': form,
+        'related_post':related_post
     }
 
     return render(request, 'blog/blog_detail.html', context)

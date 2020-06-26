@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from cloudinary.models import CloudinaryField
+from taggit.managers import TaggableManager
+from tinymce import HTMLField
 
 # Create your models here.
 
@@ -19,11 +21,12 @@ class Author(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=150)
-    description = models.TextField()
+    description = HTMLField()
     published_date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     post_image = CloudinaryField('post_image', blank=True)
     published = models.BooleanField(default=True)
+    tags = TaggableManager()
 
     def __str__ (self):
         return self.title

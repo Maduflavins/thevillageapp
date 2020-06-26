@@ -5,8 +5,8 @@ from django.contrib.auth.admin import UserAdmin
 # Register your models here.
 
 class BookingAdmin(UserAdmin):
-    list_display = ('firstname', 'lastname', 'email', 'phone', 'plan', 'price', 'dateBooked', 'expiresDate',)
-    search_fields = ('firstname', 'lastname', 'phone',)
+    list_display = ('firstname', 'lastname', 'email', 'phone', 'plan', 'price', 'dateBooked', 'expiresDate', 'paid', 'isExpired')
+    search_fields = ('firstname', 'lastname', 'phone', 'isExpired')
     
     ordering = ('email',)
     filter_horizontal = ()

@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'accounts',
     'phone_field',
     'django_smtp_ssl',
+    'taggit',
+    'tinymce'
 
 ]
 #configure cloudinary
@@ -169,6 +171,33 @@ AUTHENTICATION_BACKENDS = (
 
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+#TinyMCE Configurations
+TINYMCE_DEFAULT_CONFIG = {
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+    }
 
 SITE_ID = 1
 
@@ -177,6 +206,7 @@ EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_HOST = 'twentytwo.qservers.net'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = True
+Email_USE_SSL = True
 EMAIL_HOST_USER = 'maduabuchiokonkwo@village.ng'
 EMAIL_HOST_PASSWORD = ',Z(-hs7vO,O{'
 

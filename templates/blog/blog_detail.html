@@ -42,6 +42,10 @@
             </form>
         </div>
         {% endif %}
+
+        {% for posts in related_posts %}
+        <a href="/blog/{{post.id}}"><h1>{{ posts.title}}</h1></a>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}

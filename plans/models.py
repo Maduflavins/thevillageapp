@@ -4,6 +4,7 @@ from accounts.models import Account
 from phone_field import PhoneField
 from django.core import mail
 from django.core.validators import RegexValidator
+from taggit.managers import TaggableManager
 # Create your models here.
 connection = mail.get_connection()
 
@@ -41,54 +42,64 @@ class Booking(models.Model):
     plan = models.CharField(max_length=100, blank=True, null=True)
     dateBooked= models.DateTimeField(blank=True, null=True, auto_now_add=True)
     expiresDate = models.DateTimeField(blank=True, null=True, auto_now_add=False)
+    paid = models.BooleanField(default=False)
+    isExpired = models.BooleanField(default=False)
+
 
 
     def __str__(self):
         return self.firstname + " " + self.lastname
 
     
+    def set_expriration(self):
+        if datetime.now >= self.expiresDate:
+            self.isExpired = True
+        else:
+            self.isExpired = False
+
+    
     
 
         
-    def send_mail(self, email, dateBooked, expiresDate, first_name, last_name):
-        booked_plan = self.plan.title
-        email = self.email
-        admin = 'maduabuchiokonkwo@village.ng'
-        client = self.first_name + " " + self.last_name
-        client_phone = self.phone
+    # def send_mail(self, email, dateBooked, expiresDate, first_name, last_name):
+    #     booked_plan = self.plan.title
+    #     email = self.email
+    #     admin = 'maduabuchiokonkwo@village.ng'
+    #     client = self.first_name + " " + self.last_name
+    #     client_phone = self.phone
 
 
-        if datetime.now() - self.dateBooked == 7:
-            message1 = (
-                'space about to expire',
-                'your plan ' + booked_plan + 'will expire in 7 days time',
-                'maduabuchiokonkwo@gmail.com',
-                [email]
-            )
-            message2=(
-                'expiration email',
-                'the user ' + client + 'plan will expire in a week time please call them on' + client_phone + 'they signed up for ' + booked_plan ,
-                'maduabuchiokonkwo@gmail.com',
-                ['maduabuchiokonkwo@gmail.com']
-            )
+    #     if datetime.now() - self.dateBooked == 7:
+    #         message1 = (
+    #             'space about to expire',
+    #             'your plan ' + booked_plan + 'will expire in 7 days time',
+    #             'maduabuchiokonkwo@gmail.com',
+    #             [email]
+    #         )
+    #         message2=(
+    #             'expiration email',
+    #             'the user ' + client + 'plan will expire in a week time please call them on' + client_phone + 'they signed up for ' + booked_plan ,
+    #             'maduabuchiokonkwo@gmail.com',
+    #             ['maduabuchiokonkwo@gmail.com']
+    #         )
 
-            mail.send_mass_mail((message1, message2), fail_silently=False)
+    #         mail.send_mass_mail((message1, message2), fail_silently=False)
 
-        if datetime.now() == self.expiresDate:
+    #     if datetime.now() == self.expiresDate:
         
-            message1 = (
-                'plan just expired',
-                'your plan for ' + booked_plan + ' please call in to book a new plan'
-                'blogging@village.ng',
-                [email]
-            )
-            message2=(
-                'expiration email',
-                'the user ' + client + 'plan just expired for the plan' + booked_plan + 'please restrict their access to the space'
-                'info@village.ng',
-                ['maduabuchiokonkwo@gmail.com']
-            )
-            mail.send_mass_mail((message1, message2), fail_silently=False)
+    #         message1 = (
+    #             'plan just expired',
+    #             'your plan for ' + booked_plan + ' please call in to book a new plan'
+    #             'blogging@village.ng',
+    #             [email]
+    #         )
+    #         message2=(
+    #             'expiration email',
+    #             'the user ' + client + 'plan just expired for the plan' + booked_plan + 'please restrict their access to the space'
+    #             'info@village.ng',
+    #             ['maduabuchiokonkwo@gmail.com']
+    #         )
+    #         mail.send_mass_mail((message1, message2), fail_silently=False)
 
 
 
