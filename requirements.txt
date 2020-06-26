@@ -117,7 +117,6 @@ django-js-asset==1.2.2
 django-libsass==0.7
 django-modelcluster==4.4.1
 django-phonenumber-field==4.0.0
-django-taggit==0.22.2
 django-treebeard==4.3.1
 django-widget-tweaks==1.4.2
 djangorestframework==3.11.0
