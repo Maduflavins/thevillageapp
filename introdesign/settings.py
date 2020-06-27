@@ -26,7 +26,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['thevillageapp.herokuapp.com', 'localhost', '*']
 
@@ -106,15 +106,15 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'thevillage',
-    #     'USER': 'admin',
-    #     'PASSWORD': 'thevillage',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'thevillage',
+        'USER': 'admin',
+        'PASSWORD': 'thevillage',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+    # 'default': dj_database_url.config()
 }
 
 
