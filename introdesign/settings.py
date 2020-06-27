@@ -106,15 +106,15 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'thevillage',
-    #     'USER': 'admin',
-    #     'PASSWORD': 'thevillage',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'thevillage',
+        'USER': 'admin',
+        'PASSWORD': 'thevillage',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+    # 'default': dj_database_url.config()
 }
 
 
@@ -202,21 +202,21 @@ TINYMCE_DEFAULT_CONFIG = {
 SITE_ID = 1
 
 #SMTP Configuration
-# EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
-# EMAIL_HOST = 'twentytwo.qservers.net'
-# EMAIL_PORT = 465
-# EMAIL_USE_TLS = True
-# Email_USE_SSL = True
-# EMAIL_HOST_USER = 'maduabuchiokonkwo@village.ng'
-# EMAIL_HOST_PASSWORD = ',Z(-hs7vO,O{'
+EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_HOST = 'twentytwo.qservers.net'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+Email_USE_SSL = True
+EMAIL_HOST_USER = 'maduabuchiokonkwo@village.ng'
+EMAIL_HOST_PASSWORD = ',Z(-hs7vO,O{'
 
-EMAIL_BACKEND = os.environ['EMAIL_BACKEND']
-EMAIL_HOST = os.environ['EMAIL_HOST']
-EMAIL_PORT = os.environ['EMAIL_PORT']
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = os.environ['Email_USE_SSL']
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+# EMAIL_BACKEND = os.environ['EMAIL_BACKEND']
+# EMAIL_HOST = os.environ['EMAIL_HOST']
+# EMAIL_PORT = os.environ['EMAIL_PORT']
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = os.environ['Email_USE_SSL']
+# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
