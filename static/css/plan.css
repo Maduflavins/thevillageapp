@@ -181,8 +181,8 @@
 #btn-custom {
 	text-transform: uppercase;
 	color: #fff;
-	text-shadow: 0 0 3px #6d0d00;
-	background-color: #6d0d00;
+	text-shadow: 0 0 3px #18d26e;
+	background-color: #18d26e;
 	/* border: 0; */
 	/* padding: 14px 20px; */
 	margin: 0;
@@ -193,7 +193,7 @@
 }
 #btn-custom:hover, #btn-custom:focus, #btn-custom.focus, #btn-custom:active, #btn-custom.active {
 	color: #e9ebec;
-	background-color: #460800;
+	background-color: #1c9957;
 }
 .intro {
 	display: table;
