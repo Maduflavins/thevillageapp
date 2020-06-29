@@ -34,7 +34,7 @@ def post_detail(request, post_id):
     context = {
         'post': posts,
         'form': form,
-        'related_post':related_post
+        'related_post':post_related
     }
 
     return render(request, 'blog/blog_detail.html', context)

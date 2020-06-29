@@ -21,7 +21,7 @@ class Author(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=150)
-    description = HTMLField()
+    description = models.TextField()
     published_date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     post_image = CloudinaryField('post_image', blank=True)

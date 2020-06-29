@@ -56,7 +56,7 @@ def login_user(request):
 
 def update_acount(request):
     if not request.user.is_authenticated:
-        return redirect("login")
+        return redirect("index")
     
     context = {}
 

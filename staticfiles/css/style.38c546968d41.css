@@ -173,7 +173,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	display: table;
 	width: 100%;
 	padding: 0;
-	background: url("../img/intro-bg.8d2bba6f0b1c.jpg") no-repeat center bottom;
+	background: url("../img/the_village_images.2edf21ecdce3.jpg") no-repeat center bottom;
 	background-color: #e5e5e5;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -245,6 +245,7 @@ header .intro-text {
 	line-height: 24px;
 	margin: 15px 0 30px;
 }
+
 /* #about .our-values div .card{
 	position: relative;
 	display: flex;
@@ -548,3 +549,31 @@ color: #777;
 #footer a:hover {
 	color: #18d26e;
 }
+
+#blog-content{
+
+    display: block;
+    flex-direction: row;
+    border: 1px solid silver;
+    box-shadow: 3px 4px 5px gray;
+    margin-bottom: 25px;
+    align-content: center;
+
+}
+#blog-text{
+  display: block;
+  height: 100px;
+  overflow: hidden;
+
+}
+#blog-image img{
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+#topic{
+  display: flex;
+  justify-content: space-between;
+}
+
+

@@ -4,10 +4,35 @@ from django.contrib.auth import authenticate
 from . models import Account
 
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField(max_length=60, help_text="Required. Add a valid email address")
-    first_name = forms.CharField(max_length=120, help_text="Please provide your first name name")
-    last_name = forms.CharField(max_length=123, help_text="please provide your last name")
-    phone_number = forms.CharField(max_length=11, help_text="Please provide your phone number ")
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'max_length':60, 
+        'help_text':'Required. Add a valid email address'
+    }))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'max_length':120, 
+        'help_text':'Please provide your first name name'
+    }))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control',
+        'max_length':123, 
+        'help_text':'please provide your last name'
+    }))
+    password1 = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control',
+    }))
+    password2 = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control',
+    }))
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control',
+    }))
+    phone_number = forms.RegexField(regex=r'^[0]\d{10}$', widget=forms.TextInput(attrs={
+        'class':'form-control',
+        'max_length':11, 
+        'help_text':'Please provide your phone number'
+    }))
 
     class Meta:
         model = Account
@@ -20,7 +45,14 @@ class RegistrationForm(UserCreationForm):
 
 
 class LoginForm(forms.ModelForm):
-    password = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class':'form-control',
+        'label':'Password',
+    }))
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        'class':'form-control',
+        'label':'Email'
+    }))
 
     class Meta:
         model = Account

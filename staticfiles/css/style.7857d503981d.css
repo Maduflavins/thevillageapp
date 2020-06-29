@@ -173,7 +173,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	display: table;
 	width: 100%;
 	padding: 0;
-	background: url(../img/the_village_images.jpg) no-repeat center bottom;
+	background: url("../img/the_village_images.2edf21ecdce3.jpg") no-repeat center bottom;
 	background-color: #e5e5e5;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -372,7 +372,7 @@ ol.type li a:hover {
 
 /* Events */
 #events div#notice{
-	background: url(../img/07-large.jpg) center top no-repeat;
+	background: url("../img/07-large.823e4e3b6de8.jpg") center top no-repeat;
 	background-size: cover ;
 	text-align: center;
 	height: 600px;
@@ -386,7 +386,7 @@ ol.type li a:hover {
 /* Team Section */
 #team {
 	color: #fff;
-	background: #18d26e url(../img/team-bg.jpg) center top no-repeat;
+	background: #18d26e url("../img/team-bg.1a9df847e3dc.jpg") center top no-repeat;
 	background-size: cover;
 }
 #team .overlay {

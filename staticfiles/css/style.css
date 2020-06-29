@@ -173,7 +173,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	display: table;
 	width: 100%;
 	padding: 0;
-	background: url(../img/intro-bg.jpg) no-repeat center bottom;
+	background: url(../img/the_village_images.jpg) no-repeat center bottom;
 	background-color: #e5e5e5;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -245,19 +245,8 @@ header .intro-text {
 	line-height: 24px;
 	margin: 15px 0 30px;
 }
-/* #about .our-values div .card{
-	position: relative;
-	display: flex;
-	 height: 300px;
-	width: 250px; 
-	flex-direction: column;
-	min-width: 0;
-	word-wrap: break-word !important;
-	background-color: #fff;
-	background-clip: border-box;
-	border: 1px solid rgba(0,0,0,.125);
-	border-radius: .25rem;
-} */
+
+
 /* Services Section */
 #services {
 	padding: 120px 0;
@@ -548,3 +537,31 @@ color: #777;
 #footer a:hover {
 	color: #18d26e;
 }
+
+#blog-content{
+
+    display: block;
+    flex-direction: row;
+    border: 1px solid silver;
+    box-shadow: 3px 4px 5px gray;
+    margin-bottom: 25px;
+    align-content: center;
+
+}
+#blog-text{
+  display: block;
+  height: 100px;
+  overflow: hidden;
+
+}
+#blog-image img{
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+#topic{
+  display: flex;
+  justify-content: space-between;
+}
+
+
