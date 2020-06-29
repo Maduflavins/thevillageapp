@@ -58,46 +58,48 @@
         </div>
       </nav>
       <div class="container">
+       <div style="margin-top: 50px;"> 
         <div class="row">
-            <div class="section-title text-center center">    
-                <h2>Update Account<h2>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-container">
-                <div class="form-group">
-                    <form method="POST">
-                        {% csrf_token c%}
-                        {% for field in update_form %}
-                            <p>
-                                {{field.label_tag }}
-                                {{field}}
-                                {% if field.help_text %}
-                                    <small style="color: gray;">{{field.help_text}}</small>
-                                {% endif %}
-                                
-                            </p>
-                        {% endfor %}
-                        {% for field in update_form %}
-                            {% for error in field.errors %}
-                                <small style="color: red;">{{error}}</small>
-                            {% endfor %}
-                        {% if update_form.non_field_errors %}
-                            <div style="color: red;">
-                                {{update_form.non_field_errors}}
-                            </div>
-                        {% endif %}
-                        {% endfor %}
-                        
-                        <button type="submit">Update info</button>
-                    </form>
-                    <div class="d-flex flex-column">
-                        <a class="m-auto" href="{% url 'password_change' %}">Change password</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+          <div class="section-title text-center center">    
+              <h2>Update Account<h2>
+              <hr>
+          </div>
+      </div>
+      <div class="row">
+          <div id="form-container" style="margin-bottom: 80px;">
+              <div class="form-group">
+                  <form method="POST">
+                      {% csrf_token c%}
+                      {% for field in update_form %}
+                          <p>
+                              {{field.label_tag }}
+                              {{field}}
+                              {% if field.help_text %}
+                                  <small style="color: gray;">{{field.help_text}}</small>
+                              {% endif %}
+                              
+                          </p>
+                      {% endfor %}
+                      {% for field in update_form %}
+                          {% for error in field.errors %}
+                              <small style="color: red;">{{error}}</small>
+                          {% endfor %}
+                      {% if update_form.non_field_errors %}
+                          <div style="color: red;">
+                              {{update_form.non_field_errors}}
+                          </div>
+                      {% endif %}
+                      {% endfor %}
+                      
+                      <button type="submit" style="padding: 10px; background-color: #18d26e;color: #fff; border-radius: 5px;">Update info</button>
+                  </form>
+                  <div class="d-flex flex-column">
+                      <a class="m-auto" href="{% url 'password_change' %}">Change password</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+       </div>
         
     </div>
     <div id="footer">
