@@ -4,14 +4,14 @@ from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
 
-class BookingAdmin(UserAdmin):
+class BookingAdmin(admin.ModelAdmin):
     list_display = ('firstname', 'lastname', 'email', 'phone', 'plan', 'price', 'dateBooked', 'expiresDate', 'paid', 'isExpired')
-    search_fields = ('firstname', 'lastname', 'phone', 'isExpired')
+#     search_fields = ('firstname', 'lastname', 'phone', 'isExpired')
     
     ordering = ('email',)
     filter_horizontal = ()
     list_filter = ()
-    fieldsets = ()
+#     fieldsets = ()
 
 
 admin.site.register(Booking, BookingAdmin)

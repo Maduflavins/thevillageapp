@@ -1,5 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.core.validators import RegexValidator
 # Create your models here.
 
 
@@ -69,3 +70,11 @@ class Segmentation(models.Model):
 
     def __str__ (self):
         return self.title
+
+
+class ContactUs(models.Model):
+    fullname = models.CharField(max_length=150,)
+    phone_regex = RegexValidator(regex=r'^[0]\d{10}$',message="must be a valid phone number")
+    phone = models.CharField(validators=[phone_regex], max_length=11, blank=True)
+    email = models.EmailField(max_length=200)
+    comment = models.TextField(blank=True, null=True)

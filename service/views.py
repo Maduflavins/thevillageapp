@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Service, TeamMember, Event, HappyClients, AboutUs, Segmentation
+from django.shortcuts import render, redirect
+from .models import Service, TeamMember, Event, HappyClients, AboutUs, Segmentation, ContactUs
+from .forms import ContactUsForm
 
 # Create your views here.
 
@@ -31,7 +32,17 @@ def about(request):
 
 
 def contact_us(request):
-    return render(request, 'contact_us.html')
+    form = ContactUsForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+    form = ContactUsForm()
+    context = {
+        'form': form
+    }
+
+    return render(request, 'contact_us.html', context)
 
 
 

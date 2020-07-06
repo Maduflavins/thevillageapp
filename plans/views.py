@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404, redirect
 from .models import Plan, Booking
 from .forms import BookingForm
 from django.core import mail
+from django.utils import timezone
 
 # Create your views here.
 
@@ -55,6 +56,12 @@ def plan_detail(request, plan_id, plan_title, plan_price):
 
     return render(request, 'plan/plan_detail.html', context)
 
+
+
+def expired_plan():
+    bookings = Booking.objects.filter(isExpired=True)
+    emails = bookings.email.all()
+    
 
 
 

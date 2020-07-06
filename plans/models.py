@@ -2,11 +2,15 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 from accounts.models import Account
 from phone_field import PhoneField
-from django.core import mail
 from django.core.validators import RegexValidator
 from taggit.managers import TaggableManager
+from django.utils import timezone
+
+now = timezone.now()
+
+
+
 # Create your models here.
-connection = mail.get_connection()
 
 class Plan(models.Model):
     title = models.CharField(max_length=100)
@@ -40,10 +44,12 @@ class Booking(models.Model):
     phone_regex = RegexValidator(regex=r'^[0]\d{10}$',message="must be a valid phone number")
     phone = models.CharField(validators=[phone_regex], max_length=11, blank=True)
     plan = models.CharField(max_length=100, blank=True, null=True)
+    comment = models.TextField(blank=True)
     dateBooked= models.DateTimeField(blank=True, null=True, auto_now_add=True)
     expiresDate = models.DateTimeField(blank=True, null=True, auto_now_add=False)
     paid = models.BooleanField(default=False)
     isExpired = models.BooleanField(default=False)
+    
 
 
 
@@ -52,8 +58,9 @@ class Booking(models.Model):
 
     
     def set_expriration(self):
-        if datetime.now >= self.expiresDate:
+        if now >= self.expiresDate:
             self.isExpired = True
+
         else:
             self.isExpired = False
 

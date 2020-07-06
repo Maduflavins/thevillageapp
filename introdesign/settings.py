@@ -26,7 +26,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['thevillageapp.herokuapp.com', 'localhost', '*']
 
@@ -106,17 +106,34 @@ LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     #     'NAME': 'thevillage',
+#     #     'USER': 'admin',
+#     #     'PASSWORD': 'thevillage',
+#     #     'HOST': 'localhost',
+#     #     'PORT': '',
+#     # }
+#     # 'default': dj_database_url.config()
+
+#     #  'default': {
+#     #     'ENGINE': 'django.db.backends.sqlite',
+#     #     'NAME': 'xe',
+#     #     'USER': 'a_user',
+#     #     'PASSWORD': 'a_password',
+#     #     'HOST': '',
+#     #     'PORT': '',
+#     # }
+# }
+
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'thevillage',
-    #     'USER': 'admin',
-    #     'PASSWORD': 'thevillage',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
 
 
 # Password validation

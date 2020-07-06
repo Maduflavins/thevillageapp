@@ -8,6 +8,7 @@ class BookingForm(forms.ModelForm):
         self.fields['plan'].disabled = True
         self.fields['price'].initial = plan_price
         self.fields['price'].disabled = True
+        
     firstname = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'placeholder':'Enter your first name',
         'class':'form-control',
         'rows':'4'
@@ -33,6 +34,10 @@ class BookingForm(forms.ModelForm):
         'class':'form-control',
         'rows': '4',
         'readonly': 'readonly'
+    }))
+    comment = forms.CharField(widget=forms.Textarea(attrs={
+        'class':'form-control',
+        'rows':'4'
     }))
 
 
