@@ -1,6 +1,5 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
-from accounts.models import Account
 from phone_field import PhoneField
 from django.core.validators import RegexValidator
 from taggit.managers import TaggableManager
