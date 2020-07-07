@@ -90,64 +90,64 @@ def plan_detail(request, plan_id, plan_title, plan_price):
 #         mail.send_mass_mail((message1, message2), fail_silently=False)
 
 
-@background(schedule=2)
-def notify_user():
-    bookings = Booking.objects.all()
-    support = 'booking@village.ng'
-    if bookings.isExpired == True:
-        for booking in bookings:
-            email = booking.email
-            phone = booking.phone
-            for booking in bookings:
-                name = booking.firstname
-                email = booking.email
-                phone = booking.phone
-                message1 = (
-                    'Booking Expired',
-                    'Dear ' + name + ' your plan with us at thevillage just expired. You can reach us immediately at 07089996339 for to renew',
-                    support,
-                    [email]
-                )
+# @background(schedule=2)
+# def notify_user():
+#     bookings = Booking.objects.all()
+#     support = 'booking@village.ng'
+#     if bookings.isExpired == True:
+#         for booking in bookings:
+#             email = booking.email
+#             phone = booking.phone
+#             for booking in bookings:
+#                 name = booking.firstname
+#                 email = booking.email
+#                 phone = booking.phone
+#                 message1 = (
+#                     'Booking Expired',
+#                     'Dear ' + name + ' your plan with us at thevillage just expired. You can reach us immediately at 07089996339 for to renew',
+#                     support,
+#                     [email]
+#                 )
 
-                message2 = (
-                    'Expired plan',
-                    'Please call ' + name + ' at ' + phone + ' their plan has expired',
-                    support,
-                    ['maduabuchiokonkwo@gmail.com']
-                )
-                mail.send_mass_mail((message1, message2), fail_silently=False)
+#                 message2 = (
+#                     'Expired plan',
+#                     'Please call ' + name + ' at ' + phone + ' their plan has expired',
+#                     support,
+#                     ['maduabuchiokonkwo@gmail.com']
+#                 )
+#                 mail.send_mass_mail((message1, message2), fail_silently=False)
 
-    elif booking.expiresDate - timezone.now == 7:
-        for booking in bookings:
-            email = booking.email
-            phone = booking.phone
-            for booking in bookings:
-                name = booking.firstname
-                email = booking.email
-                phone = booking.phone
-                message1 = (
-                    'Booking Expired',
-                    'Dear ' + name + ' your plan with us at thevillage just expired. You can reach us immediately at 07089996339 for to renew',
-                    support,
-                    [email]
-                )
+#     elif booking.expiresDate - timezone.now == 7:
+#         for booking in bookings:
+#             email = booking.email
+#             phone = booking.phone
+#             for booking in bookings:
+#                 name = booking.firstname
+#                 email = booking.email
+#                 phone = booking.phone
+#                 message1 = (
+#                     'Booking Expired',
+#                     'Dear ' + name + ' your plan with us at thevillage just expired. You can reach us immediately at 07089996339 for to renew',
+#                     support,
+#                     [email]
+#                 )
 
-                message2 = (
-                    'Expired plan',
-                    'Please call ' + name + ' at ' + phone + ' their plan has expired',
-                    support,
-                    ['maduabuchiokonkwo@gmail.com']
-                )
-                mail.send_mass_mail((message1, message2), fail_silently=False)
-    else:
+#                 message2 = (
+#                     'Expired plan',
+#                     'Please call ' + name + ' at ' + phone + ' their plan has expired',
+#                     support,
+#                     ['maduabuchiokonkwo@gmail.com']
+#                 )
+#                 mail.send_mass_mail((message1, message2), fail_silently=False)
+#     else:
 
-        message2 = (
-            'Expired plan',
-            'Please call ' + name + ' at ' + phone + ' their plan has expired',
-            support,
-            ['maduabuchiokonkwo@gmail.com']
-        )
-        mail.send_mail(message2, fail_silently=False)
+#         message2 = (
+#             'Expired plan',
+#             'Please call ' + name + ' at ' + phone + ' their plan has expired',
+#             support,
+#             ['maduabuchiokonkwo@gmail.com']
+#         )
+#         mail.send_mail(message2, fail_silently=False)
         
         
     
