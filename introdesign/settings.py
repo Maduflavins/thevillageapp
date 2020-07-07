@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'schedule',
     'celery',
     'background_task',
+    'apscheduler',
     
 
 ]

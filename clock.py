@@ -12,7 +12,7 @@ def notify_user():
     now = DT.datetime.now()
     expire_date = bookings.expiresDate
     support = 'booking@village.ng'
-    if((DT.datetime.combine(expire_date, DT.time(0)) - DT.datetime.combine(now, DT.time(0))).days == 0):
+    if DT.datetime.now() >= expire_date:
         for booking in bookings:
             name = booking.firstname + " " + booking.lastname
             email = booking.email
