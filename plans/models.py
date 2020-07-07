@@ -57,8 +57,8 @@ class Booking(models.Model):
         return self.firstname + " " + self.lastname
 
     
-    def set_expriration(self):
-        if now >= self.expiresDate:
+    def set_expriration(self, expiresDate):
+        if timezone.now() >= self.expiresDate:
             self.isExpired = True
 
         else:

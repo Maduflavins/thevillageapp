@@ -167,7 +167,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Brazzaville'
 
 USE_I18N = True
 
