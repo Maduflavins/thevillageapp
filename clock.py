@@ -1,4 +1,4 @@
-from blog.models import Booking
+from plans.models import Booking
 from django.core import mail
 import datetime as DT
 from apscheduler.schedulers.blocking import BlockingScheduler
