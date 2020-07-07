@@ -3,6 +3,10 @@ from .models import Plan, Booking
 from .forms import BookingForm
 from django.core import mail
 from django.utils import timezone
+import schedule
+import time
+from background_task import background
+
 
 # Create your views here.
 
@@ -33,14 +37,14 @@ def plan_detail(request, plan_id, plan_title, plan_price):
 
             message1 = (
                 'Congratulations',
-                'thank you for booking  a place with us' + plan_str + 'your price is  '  + price_str + ' please call in to make your payment',
-                'maduabuchiokonkwo@village.ng',
+                'thank you for booking  a place with us  your plan is ' + plan_str + ' your price is  '  + price_str + ' please call in to make your payment',
+                'booking@village.ng',
             [email]
             )
             message2=(
                 'a new signup',
-                'a new client' + first_name + " " + last_name + " just signed up please call then on " + phone,
-                'maduabuchiokonkwo@village.ng',
+                'a new client ' + first_name + " " + last_name + " just signed up please call then on " + phone,
+                'booking@village.ng',
                 ['maduabuchiokonkwo@gmail.com']
             )
 
@@ -58,10 +62,133 @@ def plan_detail(request, plan_id, plan_title, plan_price):
 
 
 
-def expired_plan():
-    bookings = Booking.objects.filter(isExpired=True)
-    emails = bookings.email.all()
+# def expired_plan():
+#     bookings = Booking.objects.filter(isExpired=True)
+#     # emails = bookings.email.all()
+#     # admins = ['dapo@village.ng', 'james@village.ng', 'sam@village.ng']
+#     admins = 'maduabuchiokonkwo@gmail.com'
+#     support = 'booking@village.ng'
+
+   
+#     for booking in bookings:
+#         name = booking.firstname
+#         email = booking.email
+#         phone = booking.phone
+#         message1 = (
+#             'Booking Expired',
+#             'Dear ' + name + ' your plan with us at thevillage just expired. You can reach us immediately at 07089996339 for to renew',
+#             support,
+#             [email]
+#         )
+
+#         message2 = (
+#             'Expired plan',
+#             'Please call ' + name + ' at ' + phone + ' their plan has expired',
+#             support,
+#             ['maduabuchiokonkwo@gmail.com']
+#         )
+#         mail.send_mass_mail((message1, message2), fail_silently=False)
+
+
+@background(schedule=2)
+def notify_user():
+    bookings = Booking.objects.all()
+    support = 'booking@village.ng'
+    if bookings.isExpired == True:
+        for booking in bookings:
+            email = booking.email
+            phone = booking.phone
+            for booking in bookings:
+                name = booking.firstname
+                email = booking.email
+                phone = booking.phone
+                message1 = (
+                    'Booking Expired',
+                    'Dear ' + name + ' your plan with us at thevillage just expired. You can reach us immediately at 07089996339 for to renew',
+                    support,
+                    [email]
+                )
+
+                message2 = (
+                    'Expired plan',
+                    'Please call ' + name + ' at ' + phone + ' their plan has expired',
+                    support,
+                    ['maduabuchiokonkwo@gmail.com']
+                )
+                mail.send_mass_mail((message1, message2), fail_silently=False)
+
+    elif booking.expiresDate - timezone.now == 7:
+        for booking in bookings:
+            email = booking.email
+            phone = booking.phone
+            for booking in bookings:
+                name = booking.firstname
+                email = booking.email
+                phone = booking.phone
+                message1 = (
+                    'Booking Expired',
+                    'Dear ' + name + ' your plan with us at thevillage just expired. You can reach us immediately at 07089996339 for to renew',
+                    support,
+                    [email]
+                )
+
+                message2 = (
+                    'Expired plan',
+                    'Please call ' + name + ' at ' + phone + ' their plan has expired',
+                    support,
+                    ['maduabuchiokonkwo@gmail.com']
+                )
+                mail.send_mass_mail((message1, message2), fail_silently=False)
+    else:
+
+        message2 = (
+            'Expired plan',
+            'Please call ' + name + ' at ' + phone + ' their plan has expired',
+            support,
+            ['maduabuchiokonkwo@gmail.com']
+        )
+        mail.send_mail(message2, fail_silently=False)
+        
+        
     
+
+
+# schedule.every(10).seconds.do(expired_plan)
+# schedule.run_pending()
+
+
+# def to_be_expired():
+#      admins = 'maduabuchiokonkwo@gmail.com'
+#      support = 'booking@village.ng'
+#      bookings = Booking.objects.all()
+#      for booking in bookings:
+#         name = booking.firstname + " " + booking.lastname
+#         email = booking.email
+#         phone = booking.phone
+#         message1 = (
+#             'Booking to expire in a week ',
+#             'Dear ' + name + ' your plan with us will expire in a week time ', 
+#             support,
+#             [email]
+#         )
+#         message2 = (
+#             'Booking to expire in a week',
+#             'Please call ' + name  + ' at ' +  phone + ' their plan will expire in a week time ',
+#             support,
+#             ['maduabuchiokonkwo@gmail.com']
+#         )
+#         mail.send_mass_mail((message1, message2), fail_silently=False)
+        
+   
+
+
+
+
+    # to_be_expired()
+
+
+
+
 
 
 

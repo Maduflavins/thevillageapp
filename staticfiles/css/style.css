@@ -6,6 +6,7 @@ body, html {
 	font-weight: 300;
 	width: 100% !important;
 	height: 100% !important;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 h2 {
 	margin: 0 0 20px 0;
@@ -13,25 +14,30 @@ h2 {
 	font-size: 34px;
 	color: #333;
 	text-transform: uppercase;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 h3 {
 	font-size: 22px;
 	font-weight: 500;
 	color: #333;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 h4 {
 	font-size: 24px;
 	text-transform: uppercase;
 	font-weight: 400;
 	color: #333;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 h5 {
 	text-transform: uppercase;
 	font-weight: 700;
 	line-height: 20px;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 p {
 	font-size: 17px;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 p.intro {
 	margin: 12px 0 0;
@@ -69,16 +75,18 @@ ul, ol {
 	padding: 0;
 	webkit-padding: 0;
 	moz-padding: 0;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 hr {
 	height: 4px;
 	width: 70px;
 	text-align: center;
 	position: relative;
-	background: #18d26e;
+	background: #6d0d00;
 	margin: 0 auto;
 	margin-bottom: 20px;
 	border: 0;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 .btn:active, .btn.active {
 	background-image: none;
@@ -115,7 +123,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 }
 #menu.navbar-default .navbar-nav > li > a {
 	text-transform: uppercase;
-	color: #18d26e;
+	color: #6d0d00;
 	font-weight: 400;
 	font-size: 15px;
 	padding: 5px 0;
@@ -139,8 +147,8 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	border-radius: 0;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-	background-color: #18d26e;
-	border-color: #18d26e;
+	background-color: #6d0d00;
+	border-color: #6d0d00;
 }
 .navbar-default .navbar-toggle:hover>.icon-bar {
 	background-color: #FFF;
@@ -150,12 +158,13 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 }
 .section-title p {
 	font-size: 18px;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 .btn-custom {
 	text-transform: uppercase;
 	color: #fff;
-	text-shadow: 0 0 3px #2cc473;
-	background-color: #18d26e;
+	text-shadow: 0 0 3px #7c0e00;
+	background-color: #6d0d00;
 	border: 0;
 	padding: 14px 20px;
 	margin: 0;
@@ -166,7 +175,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 }
 .btn-custom:hover, .btn-custom:focus, .btn-custom.focus, .btn-custom:active, .btn-custom.active {
 	color: rgba(255,255,255,0.8);
-	background-color: #14ac5b;
+	background-color: #520c03;
 }
 /* Header Section */
 .intro {
@@ -190,9 +199,10 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin-top: 0;
 	margin-bottom: 10px;
 	letter-spacing: -1px;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 .intro span {
-	color: #18d26e;
+	color: #6d0d00;
 	font-weight: 600;
 }
 .intro p {
@@ -201,6 +211,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	font-weight: 300;
 	margin-top: 10px;
 	margin-bottom: 40px;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 header .intro-text {
 	padding-top: 300px;
@@ -223,7 +234,7 @@ header .intro-text {
 #about .about-title {
 	display: inline-block;
 	border-radius: 100px 0 100px 0;
-	box-shadow: -15px 0 #18d26e;
+	box-shadow: -15px 0 #6d0d00;
 }
 #about .about-icon{
     /* border: 1px solid green; */
@@ -234,7 +245,7 @@ header .intro-text {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 8%;
-    background: #18d26e ;
+    background: #6d0d00 ;
 }
 #about ul li{
     /* border: 1px solid red; */
@@ -257,7 +268,7 @@ header .intro-text {
 #services img {
 	width: 300px;
 	border-radius: 75px 0 75px 0;
-	box-shadow: 15px 0 #18d26e;
+	box-shadow: 15px 0 #6d0d00;
 }
 #services h3 {
 	padding: 10px 0;
@@ -280,21 +291,21 @@ ol.type li {
 	margin-left: 20px;
 }
 ol.type li a {
-	color: #18d26e;
+	color: #6d0d00;
 	font-weight: 400;
 	font-size: 15px;
 	padding: 10px 20px;
-	border: 2px solid #18d26e;
+	border: 2px solid #6d0d00;
 	border-radius: 10px 0 10px 0;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 }
 ol.type li a.active {
-	background: #18d26e;
+	background: #6d0d00;
 	color: #fff;
 }
 ol.type li a:hover {
-	background: #18d26e;
+	background: #6d0d00;
 	color: #fff;
 }
 .isotope-item {
@@ -350,6 +361,7 @@ ol.type li a:hover {
 	opacity: 0;
 	transition: all 0.5s;
 	border-radius: 0 50px 0 50px;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 .hover-bg .hover-text>h4 {
 	opacity: 0;
@@ -365,6 +377,7 @@ ol.type li a:hover {
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateY(0);
 	transform: translateY(0);
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 .hover-bg:hover .hover-text {
 	opacity: 1;
@@ -386,15 +399,16 @@ ol.type li a:hover {
 /* Team Section */
 #team {
 	color: #fff;
-	background: #18d26e url(../img/team-bg.jpg) center top no-repeat;
+	background: #6d0d00 url(../img/team-bg.jpg) center top no-repeat;
 	background-size: cover;
 }
 #team .overlay {
 	padding: 120px 0;
-	background: #18d26edc;
+	background: #6d0d00dc;
 }
 #team h2, #team p {
 	color: #fff;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 #team hr {
 	background: #fff;
@@ -404,12 +418,14 @@ ol.type li a:hover {
 	font-weight: 500;
 	font-size: 20px;
 	margin: 5px 0;
+	font-family: 'IBM Plex Sans', sans-serif;
+	
 }
 #team .team-img {
 	width: 200px;
 	height: 200px;
 	border-radius: 50px 0 50px 0;
-	box-shadow: 15px 0 #96b044;
+	box-shadow: 15px 0 #5f0b00;
 }
 #team .thumbnail {
 	background: transparent;
@@ -448,6 +464,7 @@ div#form-container{
 	font-size: 20px;
 	font-weight: 400;
 	color: #555;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 #contact .text-danger {
 	color: #cc0033;
@@ -506,6 +523,7 @@ color: #777;
 }
 #contact .contact-item p {
 	font-size: 16px;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 /* Footer Section*/
 #footer {
@@ -522,7 +540,7 @@ color: #777;
 #footer .social i.fa {
 	font-size: 26px;
 	padding: 4px;
-	color: #18d26e;
+	color: #6d0d00;
 	transition: all 0.3s;
 }
 #footer .social i.fa:hover {
@@ -530,12 +548,13 @@ color: #777;
 }
 #footer p {
 	font-size: 15px;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
 #footer a {
 	color: #999;
 }
 #footer a:hover {
-	color: #18d26e;
+	color: #6d0d00;
 }
 
 #blog-content{

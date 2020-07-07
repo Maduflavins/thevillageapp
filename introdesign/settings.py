@@ -58,7 +58,12 @@ INSTALLED_APPS = [
     'phone_field',
     'django_smtp_ssl',
     'taggit',
-    'tinymce'
+    'tinymce',
+    'schedule',
+    'celery',
+    'background_task',
+    'apscheduler',
+    
 
 ]
 #configure cloudinary
@@ -225,8 +230,8 @@ EMAIL_HOST = 'twentytwo.qservers.net'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = True
 Email_USE_SSL = True
-EMAIL_HOST_USER = 'maduabuchiokonkwo@village.ng'
-EMAIL_HOST_PASSWORD = ',Z(-hs7vO,O{'
+EMAIL_HOST_USER = 'booking@village.ng'
+EMAIL_HOST_PASSWORD = 'thevillagebooking'
 
 # EMAIL_BACKEND = os.environ['EMAIL_BACKEND']
 # EMAIL_HOST = os.environ['EMAIL_HOST']

@@ -5,9 +5,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<!-- Favicons
+<!-- Fonts
     ================================================== -->
-
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
@@ -89,7 +89,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-4 col-lg-4 h-100 text-center card">
                     <div class="img-mission" style=" padding: 5px;">
-                        <img src="{{ about.mission_image.url }}" alt="" class="img-fluid about-icon">
+                        <img style="display: block; max-width: 100%; height: auto;" src="{{ about.mission_image.url }}" alt="" class="img-fluid about-icon">
                     </div>
                     <div class="text">
                         <h4 class="">Mission</h4>
@@ -112,7 +112,7 @@
                 <!-- <hr> -->
                 <div class="col-xs-12 col-md-4 col-lg-4 h-100 text-center card">
                     <div class="img-mission" style=" padding: 5px;">
-                        <img src="{{ about.value_image.url }}" alt="" class="img-fluid" style="width: 100px; height:100px">
+                        <img style="display: block; max-width: 100%; height: auto;" src="{{ about.value_image.url }}" alt="" class="img-fluid" style="width: 100px; height:100px">
                     </div>
                     <div class="text " style="margin-top: 50px; padding-bottom:40px">
                         <h4 class="">Core Values</h4>
@@ -127,10 +127,10 @@
             </div>
         </div>
         <div class="container">
-            <div class="section-title text-center center">
+            <!-- <div class="section-title text-center center">
                 <h2 >Our Segmentations</h2>
                 <hr>
-            </div>
+            </div> -->
             
             <div class="row">
                 <div class="col-xs-12 col-md-6">
@@ -167,8 +167,8 @@
         <ul>
           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
           <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="www.instagram.com/villagedotng"><i class="fa fa-instagram"></i></a></li>
-          <li><a href="www.linkedin.com/in/thevillage"><i class="fa fa-linkedin-square"></i></a></li>
+          <li><a href="https://www.instagram.com/villagedotng"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/thevillage"><i class="fa fa-linkedin-square"></i></a></li>
           <li><a href="#"><i class="fa fa-youtube"></i></a></li>
         </ul>
       </div>
