@@ -21,16 +21,16 @@ def notify_user():
             message1 = (
                     'Booking Expired',
                     'Dear ' + name + ' your plan, ' + plan + ' with us at thevillage just expired. You can reach us immediately at 07089996339 for to renew',
-                    support,
+                    'booking@village.ng',
                     [email]
                 )
 
-                message2 = (
-                    'Expired plan',
-                    'Please call ' + name + ' at ' + phone + ' their plan ' + plan + ' has expired',
-                    support,
-                    ['maduabuchiokonkwo@gmail.com']
-                )
+            message2 = (
+                'Expired plan',
+                'Please call ' + name + ' at ' + phone + ' their plan ' + plan + ' has expired',
+                'booking@village.ng',
+                ['maduabuchiokonkwo@gmail.com']
+            )
             mail.send_mass_mail((message1, message2), fail_silently=False)
 sched.start()
 
