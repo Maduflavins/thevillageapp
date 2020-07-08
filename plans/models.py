@@ -4,7 +4,8 @@ from phone_field import PhoneField
 from django.core.validators import RegexValidator
 from taggit.managers import TaggableManager
 from django.utils import timezone
-
+from django.core.signals import request_started
+from django.dispatch import receiver
 now = timezone.now()
 
 
@@ -55,13 +56,13 @@ class Booking(models.Model):
     def __str__(self):
         return self.firstname + " " + self.lastname
 
-    
-    def set_expriration(self, expiresDate):
-        if timezone.now() >= self.expiresDate:
-            self.isExpired = True
+@receiver(request_started, sender=Booking)
+def set_expriration():
+    if timezone.now() >= self.expiresDate:
+        self.isExpired = True
 
-        else:
-            self.isExpired = False
+    else:
+        self.isExpired = False
 
     
     
