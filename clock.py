@@ -4,7 +4,8 @@ from django.utils import timezone
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 
-
+scheduler = BlockingScheduler()
+@sched.scheduled_job('interval', seconds=60)
 def toexpire():
     DT = timezone.now()
     bookings = Booking.objects.all()
@@ -22,13 +23,13 @@ def toexpire():
                  ['maduabuchiokonkwo@gmail.com']
             )
 
-scheduler = BlockingScheduler()
-scheduler.add_job(toexpire, 'interval', seconds=60)
-print("sending notifications")
-try:
-    scheduler.start()
-except:
-    print(error)
+scheduler.start()
+# scheduler.add_job(toexpire, 'interval', seconds=60)
+# print("sending notifications")
+# try:
+    
+# except:
+#     print(error)
 
    
 # from apscheduler.schedulers.blocking import BlockingScheduler
