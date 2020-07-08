@@ -1,5 +1,5 @@
 from plans.models import Booking
-# from django.core import mail
+from django.core import mail
 from django.utils import timezone
 from apscheduler.schedulers.blocking import BlockingScheduler
 

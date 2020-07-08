@@ -71,8 +71,7 @@ cloudinary.config(
     cloud_name = os.environ["CLOUD_NAME"],
     api_key = os.environ["API_KEY"],
     api_secret = os.environ["API_SECRET"],
-    secure = True
-)
+    secure = True)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
