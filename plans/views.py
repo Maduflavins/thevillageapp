@@ -6,6 +6,7 @@ from django.utils import timezone
 import schedule
 import time
 from background_task import background
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 # Create your views here.
@@ -188,6 +189,32 @@ def plan_detail(request, plan_id, plan_title, plan_price):
 
 
 
+def toexpire():
+    DT = timezone.now()
+    bookings = Booking.objects.all()
+    for booking in bookings:
+        name = booking.firstname
+        email = booking.email
+        isExpired = booking.isExpired
+        expiredDate = booking.expiresDate
+        if DT > expiredDate:
+            isExpired = True
+            mail.send_mail(
+                 'Expired',
+                 name + ' plan has expired ',
+                 'booking@village.ng',
+                 ['maduabuchiokonkwo@gmail.com']
+            )
+
+
+
+scheduler = BlockingScheduler()
+scheduler.add_job(toexpire, 'interval', seconds=60)
+print("sending notifications")
+try:
+    scheduler.start()
+except:
+    print(error)
 
 
 
