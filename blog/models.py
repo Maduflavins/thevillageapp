@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.urls import reverse
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 from taggit.managers import TaggableManager
 from tinymce import HTMLField
 

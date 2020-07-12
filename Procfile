@@ -1,2 +1,2 @@
 web: gunicorn introdesign.wsgi
-clock: python clock.py
+worker: celery worker --app=tasks.app

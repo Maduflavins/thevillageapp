@@ -1,6 +1,6 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
 from django.core.validators import RegexValidator
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
@@ -47,14 +47,14 @@ class AboutUs(models.Model):
     about_image = CloudinaryField('about_image', blank=True)
     description = models.TextField()
     mission = models.TextField()
-    mission_image = CloudinaryField('mission_image', blank=True)
+    mission_image = models.ImageField('mission_image', blank=True)
     visions = models.TextField()
-    visions_image = CloudinaryField('visions_image', blank=True)
+    visions_image = CloudinaryField('vissions_image', blank=True)
     value1 = models.CharField(max_length=150)
     value2 = models.CharField(max_length=150)
     value3 = models.CharField(max_length=150, blank=True)
     value4 = models.CharField(max_length=150, blank=True)
-    value_image = CloudinaryField("value_image", blank=True)
+    value_image = CloudinaryField('value_image', blank=True)
     twitter = models.URLField(max_length=250, blank=True)
     instangram = models.URLField(max_length=200, blank=True)
     linkedin = models.URLField(max_length=200, blank=True)
@@ -65,7 +65,7 @@ class AboutUs(models.Model):
 
 class Segmentation(models.Model):
     title = models.CharField(max_length=100)
-    seg_image = CloudinaryField('seg_image', blank=True)
+    seg_image = models.ImageField(blank=True)
     description = models.TextField()
 
     def __str__ (self):

@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = "z5m0-$p25zosfk9^!fa^+#%^xk$k)!)m=*y2^r5#aes=bnsdyi"
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -46,10 +46,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'autoslug',
     'ckeditor',
     'service',
-    'project',
     'events',
     'plans',
     'cloudinary',
@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'celery',
     'background_task',
     'apscheduler',
+    'redis',
     
 
 ]
@@ -72,6 +73,14 @@ cloudinary.config(
     api_key = os.environ["API_KEY"],
     api_secret = os.environ["API_SECRET"],
     secure = True)
+
+    
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME':os.environ["CLOUD_NAME"],
+#     'API_KEY': os.environ["API_KEY"],
+#     'API_SECRET': os.environ["API_SECRET"]
+# }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -110,17 +119,17 @@ LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'thevillage',
-    #     'USER': 'admin',
-    #     'PASSWORD': 'thevillage',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
-    'default': dj_database_url.config()
-}
+# DATABASES = {
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     #     'NAME': 'thevillage',
+#     #     'USER': 'admin',
+#     #     'PASSWORD': 'thevillage',
+#     #     'HOST': 'localhost',
+#     #     'PORT': '',
+#     # }
+#     'default': dj_database_url.config()
+# }
 
 #     #  'default': {
 #     #     'ENGINE': 'django.db.backends.sqlite',
@@ -132,12 +141,12 @@ DATABASES = {
 #     # }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 
@@ -183,7 +192,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'  # or any prefix you choose
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -254,3 +264,7 @@ EMAIL_HOST_PASSWORD = 'thevillagebooking'
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'maduabuchiokonkwo@village.ng'
 # EMAIL_HOST_PASSWORD = '46A11417A4240B8A2F9AA5883D3119165A8A'
+
+# CELERY_BROKER_URL = 'redis://h:p36bcfacf7bdb4b6efc96c69f61c031afd7f672dd4734f7583219b91420e86ae0@ec2-52-70-215-224.compute-1.amazonaws.com:30099'
+# CELERY_ACCEPT_CONTENT = ['json']
+# CELERY_TASK_SERIALIZER = 'json'

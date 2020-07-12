@@ -2,7 +2,6 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 from phone_field import PhoneField
 from django.core.validators import RegexValidator
-from taggit.managers import TaggableManager
 from django.utils import timezone
 from django.core.signals import request_started
 from django.dispatch import receiver
@@ -15,6 +14,7 @@ now = timezone.now()
 class Plan(models.Model):
     title = models.CharField(max_length=100)
     plan_img = CloudinaryField('plan_img', blank=True)
+    # plan_img = models.ImageField(upload_to='images/', blank=True)
     price = models.IntegerField(default=0)
     per = models.CharField(max_length=50,blank=True )
     benefit1 = models.CharField(max_length=150, blank=True)
@@ -49,7 +49,7 @@ class Booking(models.Model):
     expiresDate = models.DateTimeField(blank=True, null=True, auto_now_add=False)
     paid = models.BooleanField(default=False)
     isExpired = models.BooleanField(default=False)
-    
+    renewed = models.BooleanField(default=False)
 
 
 
