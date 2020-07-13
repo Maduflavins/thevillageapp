@@ -1,5 +1,5 @@
 from django.db import models
-#from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 from phone_field import PhoneField
 from django.core.validators import RegexValidator
 from django.utils import timezone
@@ -13,8 +13,8 @@ now = timezone.now()
 
 class Plan(models.Model):
     title = models.CharField(max_length=100)
-    #plan_img = CloudinaryField('plan_img', blank=True)
-    plan_img = models.ImageField(upload_to='images/', blank=True)
+    plan_img = CloudinaryField('plan_img', blank=True)
+    # plan_img = models.ImageField(upload_to='images/', blank=True)
     price = models.IntegerField(default=0)
     per = models.CharField(max_length=50,blank=True )
     benefit1 = models.CharField(max_length=150, blank=True)
