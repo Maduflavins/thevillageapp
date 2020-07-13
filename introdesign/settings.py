@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import cloudinary as cld
+import cloudinary
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -68,7 +68,7 @@ INSTALLED_APPS = [
 
 ]
 #configure cloudinary
-cld.config(
+cloudinary.config(
     cloud_name = os.environ["CLOUD_NAME"],
     api_key = os.environ["API_KEY"],
     api_secret = os.environ["API_SECRET"],
