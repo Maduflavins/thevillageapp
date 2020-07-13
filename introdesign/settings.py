@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'autoslug',
     'ckeditor',
@@ -118,17 +119,17 @@ LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'thevillage',
-    #     'USER': 'admin',
-    #     'PASSWORD': 'thevillage',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
-    'default': dj_database_url.config()
-}
+# DATABASES = {
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     #     'NAME': 'thevillage',
+#     #     'USER': 'admin',
+#     #     'PASSWORD': 'thevillage',
+#     #     'HOST': 'localhost',
+#     #     'PORT': '',
+#     # }
+#     'default': dj_database_url.config()
+# }
 
 #     #  'default': {
 #     #     'ENGINE': 'django.db.backends.sqlite',
@@ -140,12 +141,12 @@ DATABASES = {
 #     # }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 
@@ -194,7 +195,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'  # or any prefix you choose
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
@@ -232,6 +233,13 @@ TINYMCE_DEFAULT_CONFIG = {
     }
 
 SITE_ID = 1
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME':os.environ["CLOUD_NAME"],
+#     'API_KEY': os.environ["API_KEY"],
+#     'API_SECRET': os.environ["API_SECRET"]
+# }
+
 
 #SMTP Configuration
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
