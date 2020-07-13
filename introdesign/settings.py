@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import cloudinary
-import dj_database_url
+# Configure Django App for Heroku.
+import django_heroku
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -275,3 +278,5 @@ EMAIL_HOST_PASSWORD = 'thevillagebooking'
 # CELERY_BROKER_URL = 'redis://h:p36bcfacf7bdb4b6efc96c69f61c031afd7f672dd4734f7583219b91420e86ae0@ec2-52-70-215-224.compute-1.amazonaws.com:30099'
 # CELERY_ACCEPT_CONTENT = ['json']
 # CELERY_TASK_SERIALIZER = 'json'
+
+django_heroku.settings(locals())
